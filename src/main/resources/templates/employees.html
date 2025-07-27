@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="css/animation.css" />
+
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+    <link rel="stylesheet" href="/css/employees.css">
+</head>
+<body>
+<div class="container">
+    <h1>📋 Employee List</h1>
+
+    <div class="top-bar">
+        <form th:action="@{/employees/list}" method="get">
+            <input type="text" name="keyword" th:value="${keyword}" placeholder="🔍 Search..." />
+            <button type="submit">Search</button>
+        </form>
+
+        <div class="actions">
+            <a href="/employees/add" class="btn">➕ Add Employee</a>
+            <a href="/employees/export/excel" class="btn">📁 Export Excel</a>
+            <a href="/employees/charts" class="btn">📊 Charts</a>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Job Title</th>
+            <th>Joining Date</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="emp : ${employees}">
+            <td th:text="${emp.id}"></td>
+            <td th:text="${emp.name}"></td>
+            <td th:text="${emp.email}"></td>
+            <td th:text="${emp.department}"></td>
+            <td th:text="${emp.jobTitle}"></td>
+            <td th:text="${emp.dateOfJoining}"></td>
+            <td th:text="${emp.salary}"></td>
+            <td>
+                <a th:href="@{/employees/edit/{id}(id=${emp.id})}" class="btn edit">✏️</a>
+                <a th:href="@{/employees/delete/{id}(id=${emp.id})}" class="btn delete" onclick="return confirm('Are you sure?')">🗑️</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <a th:if="${currentPage > 0}" th:href="@{/employees/list(page=${currentPage - 1}, keyword=${keyword})}">⬅️ Prev</a>
+        <span>Page <span th:text="${currentPage + 1}"></span> of <span th:text="${totalPages}"></span></span>
+        <a th:if="${currentPage + 1 < totalPages}" th:href="@{/employees/list(page=${currentPage + 1}, keyword=${keyword})}">Next ➡️</a>
+    </div>
+</div>
+</body>
+</html>

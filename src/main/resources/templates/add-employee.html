@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="css/animation.css" />
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="/css/add-employee.css">
+</head>
+<body>
+<div class="form-container">
+    <h2>➕ Add New Employee</h2>
+
+    <form th:action="@{/employees/add}" th:object="${employee}" method="post">
+        <label>Name</label>
+        <input type="text" th:field="*{name}" placeholder="Enter full name" required />
+
+        <label>Email</label>
+        <input type="email" th:field="*{email}" placeholder="Enter email" required />
+
+        <label>Department</label>
+        <input type="text" th:field="*{department}" placeholder="Department" required />
+
+        <label>Job Title</label>
+        <input type="text" th:field="*{jobTitle}" placeholder="Job title" required />
+
+        <label>Date of Joining</label>
+        <input type="date" th:field="*{dateOfJoining}" required />
+
+        <label>Salary</label>
+        <input type="number" th:field="*{salary}" placeholder="Salary" required />
+
+        <div class="form-buttons">
+            <button type="submit" class="save-btn">💾 Save</button>
+            <a href="/employees/list" class="cancel-btn">🔙 Cancel</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

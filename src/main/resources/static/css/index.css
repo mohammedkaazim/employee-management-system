@@ -1,0 +1,58 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.home-heading {
+    font-size: 48px;
+    font-weight: bold;
+    color: #1c92d2;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #aaa;
+}
+
+.home-subtitle {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 40px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    padding: 14px 30px;
+    background: linear-gradient(to right, #1c92d2, #57d1f4);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.nav-buttons a:hover {
+    transform: scale(1.1);
+    background: linear-gradient(to right, #125d9b, #1c92d2);
+}
+
+/* Wave background */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 250px;
+    background: url('/images/wave.svg') no-repeat bottom;
+    background-size: cover;
+    z-index: -1;
+}

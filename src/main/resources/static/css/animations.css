@@ -1,0 +1,166 @@
+/* Global Reset and Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  min-height: 100vh;
+  animation: fadeIn 1s ease-in;
+  color: #333;
+}
+
+/* Container Styling */
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  background: #ffffffcc;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.6s ease-out;
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  animation: fadeIn 0.8s ease-in;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background: #f5f5f5;
+  color: #444;
+}
+
+tr:hover {
+  background-color: #f0f8ff;
+  transition: background 0.3s ease;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeIn 1s ease-in;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"] {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Buttons */
+button,
+a.button,
+.add-btn,
+.edit-btn,
+.delete-btn {
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+button:hover,
+a.button:hover,
+.add-btn:hover,
+.edit-btn:hover,
+.delete-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #5a67d8, #6b46c1);
+}
+
+/* Specific Button Colors */
+.edit-btn {
+  background: linear-gradient(to right, #34d399, #10b981);
+}
+
+.delete-btn {
+  background: linear-gradient(to right, #f56565, #e53e3e);
+}
+
+.add-btn {
+  background: linear-gradient(to right, #38bdf8, #0ea5e9);
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background: #ddd;
+}
+
+/* Chart Page */
+.chart-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 30px;
+  background: #ffffffdd;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  animation: slideFade 1s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

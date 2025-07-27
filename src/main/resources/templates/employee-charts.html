@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="css/animation.css" />
+
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Analytics</title>
+    <link rel="stylesheet" href="/css/employee-charts.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<!-- Chart JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/charts.js"></script>
+<canvas id="departmentChart" width="600" height="300"></canvas>
+<div class="chart-container">
+    <h2>📊 Department-wise Employee Count</h2>
+    <canvas id="deptChart" width="600" height="350"></canvas>
+    <div class="back-button">
+        <a href="/employees/list">🔙 Back to List</a>
+    </div>
+</div>
+
+<script th:inline="javascript">
+    const departments = [[${departments}]];
+    const counts = [[${counts}]];
+
+    const ctx = document.getElementById('deptChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: departments,
+            datasets: [{
+                label: 'Employees per Department',
+                data: counts,
+                backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            animation: {
+                duration: 1000,
+                easing: 'easeOutBounce'
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
